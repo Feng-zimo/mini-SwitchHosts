@@ -31,3 +31,7 @@ All notable changes to this project will be documented in this file.
 - Enhanced rule management features
 - Improved performance and stability
 - Additional language support
+- Plugin system with community-contributed language packs and extensions
+- Integrated plugin manager with online repository support
+- Built-in update checker for seamless version upgrades
+- Terminal-based plugin and language pack downloader
