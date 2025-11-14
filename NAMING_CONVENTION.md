@@ -16,40 +16,44 @@
    - 英文版本：`EN`
    - 简体中文版本：`ZH`
 
-### 示例
+### All-in-One 系列命名规范
 
-正确的命名示例：
-- `mini_switchhosts_Windows_V2.0_EN.py`
-- `mini_switchhosts_Linux_V2.0.plus_ZH.py`
-- `mini_switchhosts_macOS_V3.0_EN.py`
-- `mini_switchhosts_Windows_V3.0_ZH.py`
+All-in-One 系列文件采用特殊命名规范：`项目名_版本信息_all_in_one.py`
+
+示例：
+- `mini_switchhosts_V3.0_all_in_one.py`
 
 ## 目录结构规范
 
 ```
 项目根目录/
 ├── Stable version/
-│   ├── Windows/
-│   │   ├── mini_switchhosts-English/
-│   │   │   ├── mini_switchhosts_Windows_V2.0_EN.py
-│   │   │   ├── mini_switchhosts_Windows_V2.0.plus_EN.py
-│   │   │   └── mini_switchhosts_Windows_V3.0_EN.py
-│   │   └── mini_switchhosts-简体中文/
-│   │       ├── mini_switchhosts_Windows_V2.0_ZH.py
-│   │       ├── mini_switchhosts_Windows_V2.0.plus_ZH.py
-│   │       └── mini_switchhosts_Windows_V3.0_ZH.py
-│   ├── Linux/
-│   │   ├── mini_switchhosts-English/
-│   │   │   └── 符合命名规范的.py文件
-│   │   └── mini_switchhosts-简体中文/
-│   │       └── 符合命名规范的.py文件
-│   └── macOS/
-│       ├── mini_switchhosts-English/
-│       │   └── 符合命名规范的.py文件
-│       └── mini_switchhosts-简体中文/
-│           └── 符合命名规范的.py文件
+│   ├── Legacy-Series/
+│   │   ├── Windows/
+│   │   │   ├── mini_switchhosts-English/
+│   │   │   │   ├── mini_switchhosts_Windows_V2.0_EN.py
+│   │   │   │   ├── mini_switchhosts_Windows_V2.0.plus_EN.py
+│   │   │   │   └── mini_switchhosts_Windows_V3.0_EN.py
+│   │   │   └── mini_switchhosts-简体中文/
+│   │   │       ├── mini_switchhosts_Windows_V2.0_ZH.py
+│   │   │       ├── mini_switchhosts_Windows_V2.0.plus_ZH.py
+│   │   │       └── mini_switchhosts_Windows_V3.0_ZH.py
+│   │   ├── Linux/
+│   │   │   ├── mini_switchhosts-English/
+│   │   │   │   └── mini_switchhosts_Linux_V2.0.plus_EN.py
+│   │   │   └── mini_switchhosts-简体中文/
+│   │   │       └── mini_switchhosts_Linux_V2.0.plus_ZH.py
+│   │   └── macOS/
+│   │       ├── mini_switchhosts-English/
+│   │       │   └── mini_switchhosts_macOS_V2.0.plus_EN.py
+│   │       └── mini_switchhosts-简体中文/
+│   │           └── mini_switchhosts_macOS_V2.0.plus_ZH.py
+│   ├── All-in-One-Series/
+│   │   └── mini_switchhosts_V3.0_all_in_one.py
+│   └── Current-Version/ (符号链接或最新版本的快捷方式)
 └── beta/
-    └── README.md （说明beta版本的用途和注意事项）
+    ├── README.md （说明beta版本的用途和注意事项）
+    └── UPCOMING_3.0_PRO.md （预告未来版本）
 ```
 
 ## 不符合规范的命名示例

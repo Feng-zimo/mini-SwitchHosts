@@ -19,6 +19,7 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 - **双语界面**：提供中文和英文两种界面语言选择
 - **智能识别**：自动识别并替换已存在的相关规则，避免冲突
 - **版本更新检查**：支持自动检查新版本并提示更新
+- **一体化设计**：单一可执行文件支持所有平台和语言
 
 ## 系统要求
 
@@ -27,13 +28,41 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 - macOS 10.12 或更高版本
 - Python 3.6 或更高版本
 
+## 版本系列说明
+
+项目版本文件按系列组织在 [Stable version](Stable%20version) 目录中：
+
+### [All-in-One-Series](Stable%20version/All-in-One-Series)（推荐使用）
+一体化版本系列，单一文件支持所有平台和语言：
+- [All-in-One](Stable%20version/All-in-One-Series/All-in-One) - All-in-One 一体化版本
+
+### [Legacy-Series](Stable%20version/Legacy-Series)
+传统版本系列，按平台和语言分别维护：
+- [Windows](Stable%20version/Legacy-Series/Windows) - Windows 平台版本
+- [Linux](Stable%20version/Legacy-Series/Linux) - Linux 平台版本
+- [macOS](Stable%20version/Legacy-Series/macOS) - macOS 平台版本
+
+每个目录中包含该系列的所有版本文件，以及详细的版本说明文档。
+
+## 推荐使用：All-in-One 一体化版本
+
+为了简化使用和维护，我们强烈推荐使用 [All-in-One-Series](Stable%20version/All-in-One-Series) 中的 [All-in-One](Stable%20version/All-in-One-Series/All-in-One) 版本，该版本具有以下优势：
+- 单一文件支持所有平台（Windows、Linux、macOS）
+- 自动适配系统语言（英文、中文）
+- 包含所有功能特性
+- 易于分发和更新
+
 ## 使用说明
 
-1. 下载对应平台的版本文件
-2. 以管理员权限运行程序
-3. 点击"更新规则"获取最新 Hosts 规则
-4. 点击"应用规则"将规则写入系统 Hosts 文件
-5. 建议刷新 DNS 缓存以使更改立即生效
+1. 根据您的需求选择系列：
+   - 追求便捷性：选择 [All-in-One-Series](Stable%20version/All-in-One-Series)
+   - 需要特定平台版本：选择 [Legacy-Series](Stable%20version/Legacy-Series) 中的对应平台
+2. 进入选择的系列目录
+3. 下载需要的版本文件
+4. 以管理员权限运行程序
+5. 点击"更新规则"获取最新 Hosts 规则
+6. 点击"应用规则"将规则写入系统 Hosts 文件
+7. 建议刷新 DNS 缓存以使更改立即生效
 
 ## 安全提示
 
