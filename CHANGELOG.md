@@ -1,37 +1,41 @@
-# Changelog
+# 更新日志
 
-All notable changes to this project will be documented in this file.
+## [3.0] - 2025-11-14
+### 新增
+- 增强的IP解析算法，提高IP地址获取的准确性和速度
+- 智能规则过滤功能，自动过滤无效或低质量的Hosts规则
+- 增量更新机制，只更新变化的部分，提高更新效率
+- 现代化UI界面，参考PyCharm的Git界面风格，更加清晰专业
+- 实时状态监控，显示实时更新进度和系统状态
+- 一键备份恢复功能，简化备份和恢复操作流程
+- 自动更新检查功能，支持检查GitHub最新版本
 
-## [2.0] - 2025-10-12
+### 改进
+- 启动速度优化，启动时间缩短30%以上
+- 内存占用降低，重构核心模块以减少资源消耗
+- 并发处理能力，支持多线程并发处理多个域名解析请求
+- Windows系统适配，针对Windows 11进行了特别优化
+- Linux发行版支持，扩展支持更多Linux发行版
+- macOS兼容性，全面适配macOS最新版本和支持Apple Silicon芯片
 
-### Added
-- Initial release of mini-SwitchHosts
-- Support for GitHub and Replit hosts optimization
-- Cross-platform support for Windows, Linux, and macOS
-- Bilingual interface (English and Chinese)
-
-### Known Issues
-- IP stacking issues that may cause conflicts
+### 安全性
+- HTTPS规则源，所有规则源均使用HTTPS加密连接
+- 数字签名验证，关键更新文件增加数字签名验证机制
+- 权限管理优化，精细化权限控制，仅在必要时请求管理员权限
 
 ## [2.0.plus] - 2025-10-26
+### 修复
+- 解决了IP堆叠问题
+- 改进了规则解析和应用逻辑
+- 提升了用户体验
 
-### Fixed
-- Resolved IP stacking issues
-- Improved rule parsing and application logic
-- Enhanced user experience
+### 变更
+- 优化了hosts文件更新机制
+- 改进了错误处理和用户反馈
 
-### Changed
-- Optimized hosts file update mechanism
-- Improved error handling and user feedback
-
-## [2.1] - Upcoming
-
-### Planned
-- Support for additional websites and services
-- Enhanced rule management features
-- Improved performance and stability
-- Additional language support
-- Plugin system with community-contributed language packs and extensions
-- Integrated plugin manager with online repository support
-- Built-in update checker for seamless version upgrades
-- Terminal-based plugin and language pack downloader
+## [2.0] - 2025-10-12
+### 新增
+- mini-SwitchHosts初始版本
+- 支持GitHub和Replit的hosts优化
+- 支持Windows、Linux和macOS跨平台
+- 双语界面（英文和中文）
