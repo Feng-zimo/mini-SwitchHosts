@@ -1,10 +1,12 @@
 # macOS 英文版本文件说明
 
+![Logo](../../../../logo/logo.png)
+
 此目录包含所有 macOS 平台英文版本的 mini-SwitchHosts 文件。
 
 ## 版本历史
 
-### [mini_switchhosts_macOS_V2.0.plus_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/macOS/mini_switchhosts-English/mini_switchhosts_macOS_V2.0.plus_EN.py)
+### [mini_switchhosts_macOS_V2.0.plus_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Legacy-Series/macOS/mini_switchhosts-English/mini_switchhosts_macOS_V2.0.plus_EN.py)
 - **版本**: 2.0.plus
 - **发布日期**: 2025-10-26
 - **主要特性**:

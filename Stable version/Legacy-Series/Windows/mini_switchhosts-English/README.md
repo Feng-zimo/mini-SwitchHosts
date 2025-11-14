@@ -1,10 +1,12 @@
 # Windows 英文版本文件说明
 
+![Logo](../../../../logo/logo.png)
+
 此目录包含所有 Windows 平台英文版本的 mini-SwitchHosts 文件。
 
 ## 版本历史
 
-### [mini_switchhosts_Windows_V3.0_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Windows/mini_switchhosts-English/mini_switchhosts_Windows_V3.0_EN.py)
+### [mini_switchhosts_Windows_V3.0_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Legacy-Series/Windows/mini_switchhosts-English/mini_switchhosts_Windows_V3.0_EN.py)
 - **版本**: 3.0
 - **发布日期**: 2025-11-14
 - **主要特性**:
@@ -17,7 +19,7 @@
   - 自动更新检查功能，支持检查GitHub最新版本
   - 并发处理能力，支持多线程并发处理多个域名解析请求
 
-### [mini_switchhosts_Windows_V2.0.plus_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Windows/mini_switchhosts-English/mini_switchhosts_Windows_V2.0.plus_EN.py)
+### [mini_switchhosts_Windows_V2.0.plus_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Legacy-Series/Windows/mini_switchhosts-English/mini_switchhosts_Windows_V2.0.plus_EN.py)
 - **版本**: 2.0.plus
 - **发布日期**: 2025-10-26
 - **主要特性**:
@@ -27,7 +29,7 @@
   - 优化了hosts文件更新机制
   - 改进了错误处理和用户反馈
 
-### [mini_switchhosts_Windows_V2.0_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Windows/mini_switchhosts-English/mini_switchhosts_Windows_V2.0_EN.py)
+### [mini_switchhosts_Windows_V2.0_EN.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Legacy-Series/Windows/mini_switchhosts-English/mini_switchhosts_Windows_V2.0_EN.py)
 - **版本**: 2.0
 - **发布日期**: 2025-10-12
 - **主要特性**:

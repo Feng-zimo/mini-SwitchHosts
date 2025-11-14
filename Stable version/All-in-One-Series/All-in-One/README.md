@@ -1,5 +1,7 @@
 # All-in-One 一体化版本说明
 
+![Logo](../../../logo/logo.png)
+
 此目录包含 mini-SwitchHosts 的 All-in-One 一体化版本，支持所有主流操作系统和多语言界面。
 
 ## 文件说明

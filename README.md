@@ -1,5 +1,7 @@
 # mini-SwitchHosts
 
+![Logo](logo/logo.png)
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blue)](#)
 [![Language](https://img.shields.io/badge/language-Python-green.svg)](#)

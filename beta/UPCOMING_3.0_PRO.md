@@ -1,5 +1,7 @@
 # 即将推出：mini-SwitchHosts 3.0 Pro 版本
 
+![Logo](../logo/logo.png)
+
 我们正在开发功能更强大的 mini-SwitchHosts 3.0 Pro 版本，预计将在不久的将来与大家见面。
 
 ## 3.0 Pro 版本主要新功能预告

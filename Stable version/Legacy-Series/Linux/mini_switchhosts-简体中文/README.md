@@ -1,10 +1,12 @@
 # Linux 简体中文版本文件说明
 
+![Logo](../../../../logo/logo.png)
+
 此目录包含所有 Linux 平台简体中文版本的 mini-SwitchHosts 文件。
 
 ## 版本历史
 
-### [mini_switchhosts_Linux_V2.0.plus_ZH.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Linux/mini_switchhosts-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87/mini_switchhosts_Linux_V2.0.plus_ZH.py)
+### [mini_switchhosts_Linux_V2.0.plus_ZH.py](file:///e:/github/mini-SwitchHosts/Stable%20version/Legacy-Series/Linux/mini_switchhosts-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87/mini_switchhosts_Linux_V2.0.plus_ZH.py)
 - **版本**: 2.0.plus
 - **发布日期**: 2025-10-26
 - **主要特性**:

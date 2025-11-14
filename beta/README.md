@@ -1,5 +1,7 @@
 # Beta 版本说明
 
+![Logo](../logo/logo.png)
+
 **注意：3.0 版本已经发布为稳定版本，请前往 [Stable version](../Stable%20version) 目录获取最新版本。**
 
 此目录用于预告即将推出的测试版本和未来功能规划。
