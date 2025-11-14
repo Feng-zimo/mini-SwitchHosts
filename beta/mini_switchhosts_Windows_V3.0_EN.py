@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PySide6 一体版 GitHub & Replit Hosts 管理工具 v3.0
-功能：更新、备份、恢复 GitHub 和 Replit 相关 hosts 规则
-增强版，包含改进的IP解析、智能过滤和增量更新功能
+PySide6 All-in-One GitHub & Replit Hosts Manager v3.0
+Function: Update, backup, and restore GitHub and Replit related hosts rules
+Enhanced with improved IP resolution, smart filtering, and incremental updates
 """
 
 import sys
@@ -23,7 +23,7 @@ from PySide6.QtGui import QFont, QTextCursor, QAction, QIcon
 
 
 def is_admin():
-    """检查是否具有管理员权限"""
+    """Check if the program has administrator privileges"""
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
@@ -31,7 +31,7 @@ def is_admin():
 
 
 def run_as_admin():
-    """以管理员权限重新运行程序"""
+    """Run the program with administrator privileges"""
     if not is_admin():
         ctypes.windll.shell32.ShellExecuteW(
             None, "runas", sys.executable, " ".join(sys.argv), None, 1)
@@ -40,7 +40,7 @@ def run_as_admin():
 
 
 class EnhancedHostsManagerThread(QThread):
-    """增强版后台线程，支持并发处理"""
+    """Enhanced background thread with concurrent processing"""
     log_signal = pyqtSignal(str)
     result_signal = pyqtSignal(dict)
     progress_signal = pyqtSignal(int)
@@ -64,11 +64,11 @@ class EnhancedHostsManagerThread(QThread):
             elif self.task_type == 'incremental':
                 self.incremental_update()
         except Exception as e:
-            self.log_signal.emit(f"❌ 错误: {str(e)}")
+            self.log_signal.emit(f"❌ Error: {str(e)}")
 
     def download_hosts_enhanced(self):
-        """增强版下载功能，支持智能过滤和并发请求"""
-        self.log_signal.emit("📡 使用增强协议连接服务器...")
+        """Enhanced download with smart filtering and concurrent requests"""
+        self.log_signal.emit("📡 Connecting to servers with enhanced protocol...")
         self.progress_signal.emit(10)
 
         if self.target_type == 'github':
@@ -84,35 +84,35 @@ class EnhancedHostsManagerThread(QThread):
                 "https://cdn.jsdelivr.net/gh/techsharing/toolbox/hosts/replit-hosts"
             ]
 
-        # 并发请求以加快下载速度
+        # Concurrent requests for faster downloads
         results = {}
         threads = []
         
         def fetch_source(source, index):
             try:
-                self.log_signal.emit(f"🔄 正在从 {source.split('//')[1].split('/')[0]} 获取...")
+                self.log_signal.emit(f"🔄 Fetching from {source.split('//')[1].split('/')[0]}...")
                 response = requests.get(source, timeout=15)
                 if response.status_code == 200:
                     results[index] = response.text
             except Exception as e:
-                self.log_signal.emit(f"⚠️  {source} 失败: {str(e)}")
+                self.log_signal.emit(f"⚠️  {source} failed: {str(e)}")
 
-        # 启动并发请求
+        # Start concurrent requests
         for i, source in enumerate(sources):
             thread = threading.Thread(target=fetch_source, args=(source, i))
             threads.append(thread)
             thread.start()
             self.progress_signal.emit(20 + i * 15)
 
-        # 等待所有线程完成
+        # Wait for all threads to complete
         for thread in threads:
             thread.join()
 
         self.progress_signal.emit(80)
         
-        # 处理结果
+        # Process results
         if results:
-            # 使用第一个成功的请求结果
+            # Use the first successful result
             content = results[0] if 0 in results else list(results.values())[0]
             
             if self.target_type == 'github':
@@ -123,10 +123,10 @@ class EnhancedHostsManagerThread(QThread):
             self.progress_signal.emit(100)
             self.result_signal.emit({'success': True, 'rules': rules, 'source': sources[0]})
         else:
-            self.result_signal.emit({'success': False, 'error': '所有源都尝试失败'})
+            self.result_signal.emit({'success': False, 'error': 'All sources failed'})
 
     def extract_github_rules_enhanced(self, content):
-        """增强版GitHub规则提取，支持智能过滤"""
+        """Enhanced extraction with smart filtering"""
         github_rules = []
         lines = content.split('\n')
 
@@ -141,15 +141,15 @@ class EnhancedHostsManagerThread(QThread):
                     'favicons.githubusercontent.com', 'camo.githubusercontent.com',
                     'gist.github.com', 'gist.githubusercontent.com'
                 ]):
-                    # 智能过滤 - 检查规则是否有效
+                    # Smart filtering - check if rule seems valid
                     parts = line.split()
                     if len(parts) >= 2 and self.is_valid_ip(parts[0]):
                         github_rules.append(line)
 
-        return '\n'.join(github_rules) if github_rules else "# 未找到GitHub相关规则"
+        return '\n'.join(github_rules) if github_rules else "# GitHub related rules not found"
 
     def extract_replit_rules_enhanced(self, content):
-        """增强版Replit规则提取，支持智能过滤"""
+        """Enhanced extraction with smart filtering for Replit"""
         replit_rules = []
         lines = content.split('\n')
 
@@ -164,15 +164,15 @@ class EnhancedHostsManagerThread(QThread):
                     'docs.replit.com', 'api.replit.com',
                     'eval.replit.com', 'widgets.replit.com'
                 ]):
-                    # 智能过滤 - 检查规则是否有效
+                    # Smart filtering - check if rule seems valid
                     parts = line.split()
                     if len(parts) >= 2 and self.is_valid_ip(parts[0]):
                         replit_rules.append(line)
 
-        return '\n'.join(replit_rules) if replit_rules else "# 未找到Replit相关规则"
+        return '\n'.join(replit_rules) if replit_rules else "# Replit related rules not found"
 
     def is_valid_ip(self, ip_str):
-        """检查字符串是否为有效的IP地址"""
+        """Check if string is a valid IP address"""
         try:
             parts = ip_str.split('.')
             if len(parts) != 4:
@@ -185,22 +185,22 @@ class EnhancedHostsManagerThread(QThread):
             return False
 
     def incremental_update(self):
-        """增量更新机制"""
-        self.log_signal.emit("🔄 执行增量更新...")
-        # 实现会比较当前规则与新规则
-        # 只应用变更部分而非完全替换
-        self.log_signal.emit("✅ 增量更新完成")
+        """Incremental update mechanism"""
+        self.log_signal.emit("🔄 Performing incremental update...")
+        # Implementation would compare current rules with new ones
+        # and only apply changes rather than full replacement
+        self.log_signal.emit("✅ Incremental update completed")
         self.result_signal.emit({'success': True})
 
     def get_hosts_path(self):
-        """获取系统hosts文件路径"""
+        """Get system hosts file path"""
         if sys.platform.startswith('win'):
             return r'C:\Windows\System32\drivers\etc\hosts'
         else:
             return '/etc/hosts'
 
     def create_backup(self):
-        """创建当前hosts文件备份"""
+        """Create backup of current hosts file"""
         hosts_path = self.get_hosts_path()
         backup_dir = os.path.join(os.path.expanduser('~'), 'HostsBackups')
         os.makedirs(backup_dir, exist_ok=True)
@@ -210,20 +210,20 @@ class EnhancedHostsManagerThread(QThread):
         
         try:
             shutil.copy(hosts_path, backup_path)
-            self.log_signal.emit(f"✅ 备份已创建: {backup_path}")
+            self.log_signal.emit(f"✅ Backup created: {backup_path}")
             return True
         except Exception as e:
-            self.log_signal.emit(f"❌ 备份失败: {str(e)}")
+            self.log_signal.emit(f"❌ Backup failed: {str(e)}")
             return False
 
     def restore_backup(self):
-        """从备份恢复hosts文件"""
-        # 从备份恢复的实现
-        self.log_signal.emit("🔄 从备份恢复...")
+        """Restore hosts file from backup"""
+        # Implementation for restoring from backup
+        self.log_signal.emit("🔄 Restoring from backup...")
         self.result_signal.emit({'success': True})
 
     def clean_old_rules(self, content, target_type):
-        """从内容中清理旧规则"""
+        """Clean old rules from content"""
         section_name = "GitHub" if target_type == "github" else "Replit"
         lines = content.split('\n')
         cleaned_lines = []
@@ -242,33 +242,33 @@ class EnhancedHostsManagerThread(QThread):
         return '\n'.join(cleaned_lines)
 
     def apply_hosts(self):
-        """应用规则到hosts文件 - 使用安全写入方法"""
+        """Apply rules to hosts file - using safe write method"""
         hosts_path = self.get_hosts_path()
         new_rules = self.data
         target_type = self.target_type
 
-        self.log_signal.emit("🛡️ 检查管理员权限...")
+        self.log_signal.emit("🛡️ Checking administrator privileges...")
         if not is_admin():
-            self.result_signal.emit({'success': False, 'error': '需要管理员权限，请以管理员身份运行程序'})
+            self.result_signal.emit({'success': False, 'error': 'Administrator privileges required, please run the program as administrator'})
             return
 
-        # 备份当前hosts
-        self.log_signal.emit("📦 创建备份...")
+        # Backup current hosts
+        self.log_signal.emit("📦 Creating backup...")
         if not self.create_backup():
-            self.result_signal.emit({'success': False, 'error': '备份失败'})
+            self.result_signal.emit({'success': False, 'error': 'Backup failed'})
             return
 
         try:
-            self.log_signal.emit("📖 读取现有hosts文件...")
-            # 读取现有hosts，移除旧规则
+            self.log_signal.emit("📖 Reading existing hosts file...")
+            # Read existing hosts, remove old rules
             with open(hosts_path, 'r', encoding='utf-8') as f:
                 content = f.read()
 
-            # 清理旧的规则
-            self.log_signal.emit("🧹 清理旧规则...")
+            # Clean up old rules
+            self.log_signal.emit("🧹 Cleaning up old rules...")
             cleaned_content = self.clean_old_rules(content, target_type)
 
-            # 构建新内容
+            # Build new content
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             section_name = "GitHub" if target_type == "github" else "Replit"
             
@@ -276,25 +276,25 @@ class EnhancedHostsManagerThread(QThread):
             new_content += new_rules
             new_content += f'\n# {section_name} Hosts End\n'
 
-            # 使用临时文件安全写入
-            self.log_signal.emit("💾 写入新hosts文件...")
+            # Use temporary file for safe writing
+            self.log_signal.emit("💾 Writing new hosts file...")
             temp_dir = tempfile.gettempdir()
             temp_hosts = os.path.join(temp_dir, 'hosts_temp')
 
             with open(temp_hosts, 'w', encoding='utf-8', newline='\n') as f:
                 f.write(new_content)
 
-            # 复制临时文件到系统hosts位置
+            # Copy temporary file to system hosts location
             shutil.copy(temp_hosts, hosts_path)
 
-            # 清理临时文件
+            # Clean up temporary file
             if os.path.exists(temp_hosts):
                 os.remove(temp_hosts)
 
             self.result_signal.emit({'success': True})
 
         except PermissionError as e:
-            self.result_signal.emit({'success': False, 'error': f'权限拒绝: {str(e)}。请确保以管理员身份运行程序。'})
+            self.result_signal.emit({'success': False, 'error': f'Permission denied: {str(e)}. Please make sure to run the program as administrator.'})
 
 
 class MainWindow(QMainWindow):
@@ -305,44 +305,44 @@ class MainWindow(QMainWindow):
         self.current_target = 'github'
 
     def init_ui(self):
-        """初始化现代化用户界面"""
-        self.setWindowTitle("mini-SwitchHosts v3.0 增强版")
+        """Initialize user interface with modern design"""
+        self.setWindowTitle("mini-SwitchHosts v3.0 - Enhanced Edition")
         self.setGeometry(100, 100, 900, 700)
         
-        # 创建中央部件和布局
+        # Create central widget and layout
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         main_layout = QVBoxLayout(central_widget)
         
-        # 创建菜单栏
+        # Create menu bar
         self.create_menu()
         
-        # 创建目标选择组
-        target_group = QGroupBox("目标选择")
+        # Create target selection group
+        target_group = QGroupBox("Target Selection")
         target_layout = QHBoxLayout()
         self.target_combo = QComboBox()
         self.target_combo.addItems(["GitHub", "Replit"])
         self.target_combo.currentTextChanged.connect(self.on_target_changed)
-        target_layout.addWidget(QLabel("选择目标:"))
+        target_layout.addWidget(QLabel("Select Target:"))
         target_layout.addWidget(self.target_combo)
         target_group.setLayout(target_layout)
         main_layout.addWidget(target_group)
         
-        # 创建按钮布局
+        # Create buttons with enhanced layout
         button_layout = QHBoxLayout()
         
-        self.download_btn = QPushButton("📥 下载规则")
+        self.download_btn = QPushButton("📥 Download Rules")
         self.download_btn.clicked.connect(self.download_rules_func)
         self.download_btn.setStyleSheet("QPushButton { font-weight: bold; padding: 10px; }")
         
-        self.apply_btn = QPushButton("✅ 应用规则")
+        self.apply_btn = QPushButton("✅ Apply Rules")
         self.apply_btn.clicked.connect(self.apply_rules_func)
         self.apply_btn.setStyleSheet("QPushButton { font-weight: bold; padding: 10px; }")
         
-        self.backup_btn = QPushButton("📦 创建备份")
+        self.backup_btn = QPushButton("📦 Create Backup")
         self.backup_btn.clicked.connect(self.create_backup_func)
         
-        self.restore_btn = QPushButton("🔄 恢复备份")
+        self.restore_btn = QPushButton("🔄 Restore Backup")
         self.restore_btn.clicked.connect(self.restore_backup_func)
         
         button_layout.addWidget(self.download_btn)
@@ -352,52 +352,52 @@ class MainWindow(QMainWindow):
         
         main_layout.addLayout(button_layout)
         
-        # 创建进度条
+        # Create progress bar
         self.progress_bar = QProgressBar()
         self.progress_bar.setValue(0)
         main_layout.addWidget(self.progress_bar)
         
-        # 创建日志显示区域
+        # Create log display area
         self.log_display = QTextEdit()
         self.log_display.setReadOnly(True)
         self.log_display.setFont(QFont("Consolas", 9))
         main_layout.addWidget(self.log_display)
         
-        # 创建状态栏
+        # Create status bar
         self.status_bar = QStatusBar()
         self.setStatusBar(self.status_bar)
-        self.status_bar.showMessage("就绪 - mini-SwitchHosts v3.0 增强版")
+        self.status_bar.showMessage("Ready - mini-SwitchHosts v3.0 Enhanced Edition")
         
-        # 初始化工作线程
+        # Initialize worker thread
         self.worker_thread = None
 
     def create_menu(self):
-        """创建应用程序菜单"""
+        """Create application menu"""
         menubar = self.menuBar()
         
-        # 文件菜单
-        file_menu = menubar.addMenu('文件')
+        # File menu
+        file_menu = menubar.addMenu('File')
         
-        exit_action = QAction('退出', self)
+        exit_action = QAction('Exit', self)
         exit_action.setShortcut('Ctrl+Q')
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
         
-        # 帮助菜单
-        help_menu = menubar.addMenu('帮助')
+        # Help menu
+        help_menu = menubar.addMenu('Help')
         
-        about_action = QAction('关于', self)
+        about_action = QAction('About', self)
         about_action.triggered.connect(self.show_about)
         help_menu.addAction(about_action)
 
     def on_target_changed(self, text):
-        """处理目标选择变更"""
+        """Handle target selection change"""
         self.current_target = text.lower()
-        self.log_message(f"目标已更改为: {text}")
+        self.log_message(f"Target changed to: {text}")
 
     def download_rules_func(self):
-        """从网络源下载规则"""
-        self.log_message("开始增强版规则下载...")
+        """Download rules from network sources"""
+        self.log_message("Starting enhanced rules download...")
         self.download_btn.setEnabled(False)
         self.progress_bar.setValue(0)
         
@@ -410,27 +410,27 @@ class MainWindow(QMainWindow):
         self.worker_thread.start()
 
     def on_download_complete(self, result):
-        """处理下载完成"""
+        """Handle download completion"""
         if result.get('success'):
             self.download_rules = result.get('rules', '')
-            self.log_message(f"✅ 增强版下载成功完成")
-            self.log_message(f"来源: {result.get('source', '未知')}")
-            self.log_message("--- 下载规则预览 ---")
-            rules_preview = '\n'.join(self.download_rules.split('\n')[:10])  # 显示前10行
+            self.log_message(f"✅ Enhanced download completed successfully")
+            self.log_message(f"Source: {result.get('source', 'Unknown')}")
+            self.log_message("--- Preview of downloaded rules ---")
+            rules_preview = '\n'.join(self.download_rules.split('\n')[:10])  # Show first 10 lines
             self.log_message(rules_preview)
             if len(self.download_rules.split('\n')) > 10:
                 self.log_message("...")
-            self.log_message("--- 预览结束 ---")
+            self.log_message("--- End of preview ---")
         else:
-            self.log_message(f"❌ 下载失败: {result.get('error', '未知错误')}")
+            self.log_message(f"❌ Download failed: {result.get('error', 'Unknown error')}")
 
     def apply_rules_func(self):
-        """将下载的规则应用到hosts文件"""
+        """Apply downloaded rules to hosts file"""
         if not self.download_rules:
-            self.log_message("⚠️  没有可应用的规则。请先下载规则。")
+            self.log_message("⚠️  No rules to apply. Please download rules first.")
             return
             
-        self.log_message("正在应用增强版规则...")
+        self.log_message("Applying enhanced rules...")
         self.apply_btn.setEnabled(False)
         
         target_type = self.current_target
@@ -442,18 +442,18 @@ class MainWindow(QMainWindow):
         self.worker_thread.start()
 
     def on_apply_complete(self, result):
-        """处理应用完成"""
+        """Handle apply completion"""
         if result.get('success'):
-            self.log_message("✅ 规则应用成功!")
-            QMessageBox.information(self, "成功", "Hosts规则已成功应用!")
+            self.log_message("✅ Rules applied successfully!")
+            QMessageBox.information(self, "Success", "Hosts rules have been applied successfully!")
         else:
-            error_msg = result.get('error', '未知错误')
-            self.log_message(f"❌ 规则应用失败: {error_msg}")
-            QMessageBox.critical(self, "错误", f"规则应用失败:\n{error_msg}")
+            error_msg = result.get('error', 'Unknown error')
+            self.log_message(f"❌ Failed to apply rules: {error_msg}")
+            QMessageBox.critical(self, "Error", f"Failed to apply rules:\n{error_msg}")
 
     def create_backup_func(self):
-        """创建当前hosts文件备份"""
-        self.log_message("正在创建备份...")
+        """Create backup of current hosts file"""
+        self.log_message("Creating backup...")
         self.backup_btn.setEnabled(False)
         
         self.worker_thread = EnhancedHostsManagerThread('backup')
@@ -464,19 +464,19 @@ class MainWindow(QMainWindow):
         self.worker_thread.start()
 
     def on_backup_complete(self, result):
-        """处理备份完成"""
+        """Handle backup completion"""
         if result.get('success'):
-            self.log_message("✅ 备份创建成功!")
+            self.log_message("✅ Backup created successfully!")
         else:
-            self.log_message(f"❌ 备份失败: {result.get('error', '未知错误')}")
+            self.log_message(f"❌ Backup failed: {result.get('error', 'Unknown error')}")
 
     def restore_backup_func(self):
-        """从备份恢复hosts文件"""
-        self.log_message("正在恢复备份...")
+        """Restore hosts file from backup"""
+        self.log_message("Restoring backup...")
         self.restore_btn.setEnabled(False)
         
-        reply = QMessageBox.question(self, '确认恢复', 
-                                   '确定要从备份恢复吗?\n这将替换您当前的hosts文件。',
+        reply = QMessageBox.question(self, 'Confirm Restore', 
+                                   'Are you sure you want to restore from backup?\nThis will replace your current hosts file.',
                                    QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         
         if reply == QMessageBox.Yes:
@@ -490,53 +490,53 @@ class MainWindow(QMainWindow):
             self.restore_btn.setEnabled(True)
 
     def on_restore_complete(self, result):
-        """处理恢复完成"""
+        """Handle restore completion"""
         if result.get('success'):
-            self.log_message("✅ 备份恢复成功!")
-            QMessageBox.information(self, "成功", "Hosts文件已从备份恢复!")
+            self.log_message("✅ Backup restored successfully!")
+            QMessageBox.information(self, "Success", "Hosts file has been restored from backup!")
         else:
-            error_msg = result.get('error', '未知错误')
-            self.log_message(f"❌ 备份恢复失败: {error_msg}")
-            QMessageBox.critical(self, "错误", f"备份恢复失败:\n{error_msg}")
+            error_msg = result.get('error', 'Unknown error')
+            self.log_message(f"❌ Failed to restore backup: {error_msg}")
+            QMessageBox.critical(self, "Error", f"Failed to restore backup:\n{error_msg}")
 
     def on_worker_finished(self):
-        """处理工作线程完成"""
+        """Handle worker thread completion"""
         self.download_btn.setEnabled(True)
         self.apply_btn.setEnabled(True)
         self.backup_btn.setEnabled(True)
         self.restore_btn.setEnabled(True)
-        self.status_bar.showMessage("操作完成 - mini-SwitchHosts v3.0")
+        self.status_bar.showMessage("Operation completed - mini-SwitchHosts v3.0")
 
     def log_message(self, message):
-        """添加消息到日志显示"""
+        """Add message to log display"""
         timestamp = datetime.now().strftime('%H:%M:%S')
         formatted_message = f"[{timestamp}] {message}"
         self.log_display.append(formatted_message)
         self.log_display.moveCursor(QTextCursor.End)
-        QApplication.processEvents()  # 确保UI更新
+        QApplication.processEvents()  # Ensure UI updates
 
     def show_about(self):
-        """显示关于对话框"""
+        """Show about dialog"""
         about_text = """
         <h2>mini-SwitchHosts v3.0</h2>
-        <p><b>增强版，包含改进功能</b></p>
-        <p>增强的IP解析、智能过滤和增量更新</p>
-        <p><b>主要改进:</b></p>
+        <p><b>Enhanced Edition with Improved Features</b></p>
+        <p>Enhanced IP resolution, smart filtering, and incremental updates</p>
+        <p><b>Key Improvements:</b></p>
         <ul>
-            <li>增强的IP解析算法，提高准确性</li>
-            <li>智能规则过滤，去除无效条目</li>
-            <li>增量更新机制，提高效率</li>
-            <li>现代化UI，支持实时状态监控</li>
-            <li>并发处理，加快下载速度</li>
+            <li>Enhanced IP parsing algorithm for better accuracy</li>
+            <li>Smart rule filtering to remove invalid entries</li>
+            <li>Incremental update mechanism for efficiency</li>
+            <li>Modern UI with real-time status monitoring</li>
+            <li>Concurrent processing for faster downloads</li>
         </ul>
-        <p>© 2025 mini-SwitchHosts 项目</p>
+        <p>© 2025 mini-SwitchHosts Project</p>
         """
-        QMessageBox.about(self, "关于 mini-SwitchHosts", about_text)
+        QMessageBox.about(self, "About mini-SwitchHosts", about_text)
 
     def closeEvent(self, event):
-        """处理应用程序关闭事件"""
-        reply = QMessageBox.question(self, '确认退出', 
-                                   '确定要退出吗?\n未保存的更改可能会丢失。',
+        """Handle application close event"""
+        reply = QMessageBox.question(self, 'Confirm Exit', 
+                                   'Are you sure you want to exit?\nUnsaved changes may be lost.',
                                    QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         
         if reply == QMessageBox.Yes:
@@ -548,24 +548,24 @@ class MainWindow(QMainWindow):
 def main():
     app = QApplication(sys.argv)
     
-    # 设置应用程序信息
+    # Set application information
     app.setApplicationName("mini-SwitchHosts")
     app.setApplicationVersion("3.0")
     
-    # 检查管理员权限
+    # Check for administrator privileges
     if not is_admin():
-        reply = QMessageBox.question(None, '需要管理员权限',
-                                   '此程序需要管理员权限来修改hosts文件。\n\n是否要以管理员身份重新启动?',
+        reply = QMessageBox.question(None, 'Administrator Privileges Required',
+                                   'This program requires administrator privileges to modify the hosts file.\n\nWould you like to restart as administrator?',
                                    QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
         
         if reply == QMessageBox.Yes:
             if not run_as_admin():
-                QMessageBox.critical(None, '错误', '无法获取管理员权限。')
+                QMessageBox.critical(None, 'Error', 'Failed to obtain administrator privileges.')
                 sys.exit(1)
         else:
             sys.exit(0)
     
-    # 创建并显示主窗口
+    # Create and show main window
     window = MainWindow()
     window.show()
     

@@ -29,6 +29,12 @@
 - **数字签名验证**：关键更新文件增加数字签名验证机制
 - **权限管理优化**：精细化权限控制，仅在必要时请求管理员权限
 
+## 可用版本
+
+当前提供以下测试版本：
+- [mini_switchhosts_Windows_V3.0_EN.py](file:///e:/github/mini-SwitchHosts/beta/mini_switchhosts_Windows_V3.0_EN.py) - Windows平台英文版
+- [mini_switchhosts_Windows_V3.0_ZH.py](file:///e:/github/mini-SwitchHosts/beta/mini_switchhosts_Windows_V3.0_ZH.py) - Windows平台简体中文版
+
 ## 注意事项
 
 这些是测试版本，可能包含未预期的行为或错误。请在使用前备份重要数据。
@@ -38,4 +44,4 @@
 
 当前测试版本：V3.0 (Beta)
 目标平台：Windows
-支持语言：简体中文
+支持语言：简体中文、英文
