@@ -4,37 +4,39 @@
 
 此目录包含 mini-SwitchHosts 的 All-in-One 一体化版本，支持所有主流操作系统和多语言界面。
 
-## 文件说明
+## 目录结构
 
-### [mini_switchhosts_V3.0_all_in_one.py](file:///e:/github/mini-SwitchHosts/Stable%20version/All-in-One-Series/All-in-One/mini_switchhosts_V3.0_all_in_one.py)
-- **版本**: 3.0 All-in-One
-- **发布日期**: 2025-11-14
-- **主要特性**:
-  - 跨平台支持：Windows、Linux、macOS
-  - 多语言界面：自动检测系统语言，支持英文和中文
-  - 增强的IP解析算法，提高IP地址获取的准确性和速度
-  - 智能规则过滤功能，自动过滤无效或低质量的Hosts规则
-  - 增量更新机制，只更新变化的部分，提高更新效率
-  - 现代化UI界面，参考PyCharm的Git界面风格，更加清晰专业
-  - 实时状态监控，显示实时更新进度和系统状态
-  - 一键备份恢复功能，简化备份和恢复操作流程
-  - 自动更新检查功能，支持检查GitHub最新版本
-  - 并发处理能力，支持多线程并发处理多个域名解析请求
+### [All-in-One](All-in-One)
+基于 PySide6 框架的 All-in-One 版本
 
-### [mini_switchhosts_V3.0_pyqt.py](file:///e:/github/mini-SwitchHosts/Stable%20version/All-in-One-Series/All-in-One/mini_switchhosts_V3.0_pyqt.py)
-- **版本**: 3.0 PyQt Edition
-- **发布日期**: 2025-11-15
+### [PyQt-All-in-one-Series](PyQt-All-in-one-Series)
+基于 PyQt 框架的 All-in-One 版本
+
+## 版本历史
+
+### v3.5 版本 (最新)
 - **主要特性**:
-  - 跨平台支持：Windows、Linux、macOS
-  - 多语言界面：自动检测系统语言，支持英文和中文
-  - 增强的IP解析算法，提高IP地址获取的准确性和速度
-  - 智能规则过滤功能，自动过滤无效或低质量的Hosts规则
-  - 增量更新机制，只更新变化的部分，提高更新效率
-  - 现代化UI界面，基于PyQt框架构建
-  - 实时状态监控，显示实时更新进度和系统状态
-  - 一键备份恢复功能，简化备份和恢复操作流程
-  - 并发处理能力，支持多线程并发处理多个域名解析请求
-  - PyQt框架支持，提供流畅的用户界面体验
+  - 插件系统，支持功能扩展
+  - 高级规则管理功能
+  - 暗色主题支持
+  - 增强的IP解析算法
+  - 智能规则过滤功能
+  - 增量更新机制
+  - 现代化UI界面，参考PyCharm的Git界面风格
+  - 实时状态监控
+  - 一键备份恢复功能
+  - 并发处理能力
+
+### v3.0 版本
+- **主要特性**:
+  - 增强的IP解析算法
+  - 智能规则过滤功能
+  - 增量更新机制
+  - 现代化UI界面，参考PyCharm的Git界面风格
+  - 实时状态监控
+  - 一键备份恢复功能
+  - 自动更新检查功能
+  - 并发处理能力
 
 ## 系统要求
 
@@ -46,13 +48,46 @@
 ## 使用说明
 
 1. 确保系统已安装 Python 3.6 或更高版本
-2. 在终端或命令提示符中运行程序:
-   - Windows: `python mini_switchhosts_V3.0_all_in_one.py` 或双击运行
-   - Linux/macOS: `python3 mini_switchhosts_V3.0_all_in_one.py` (可能需要使用 sudo)
-3. 程序会自动检测系统语言并显示相应界面
-4. 点击"更新规则"获取最新 Hosts 规则
-5. 点击"应用规则"将规则写入系统 Hosts 文件
-6. 建议刷新 DNS 缓存以使更改立即生效
+2. 选择需要的版本目录（PySide6 或 PyQt）
+3. 在终端或命令提示符中运行程序:
+   - Windows: `python [版本文件名].py` 或双击运行
+   - Linux/macOS: `python3 [版本文件名].py` (可能需要使用 sudo)
+4. 程序会自动检测系统语言并显示相应界面
+5. 点击"更新规则"获取最新 Hosts 规则
+6. 点击"应用规则"将规则写入系统 Hosts 文件
+7. 建议刷新 DNS 缓存以使更改立即生效
+
+## CLI 命令行版本
+
+我们还提供了一个命令行版本 ([mini_switchhosts_V3.5_cli.py](file:///e:/github/mini-SwitchHosts/Stable%20version/All-in-One-Series/All-in-One/mini_switchhosts_V3.5_cli.py))，适用于服务器环境或自动化脚本使用。
+
+### CLI 版本特性：
+- 无图形界面，纯命令行操作
+- 支持所有平台（Windows、Linux、macOS）
+- 包含所有核心功能（下载、应用、备份、恢复规则）
+- 支持命令行参数，便于脚本集成
+- 支持从文件读取规则或下载最新规则
+
+### CLI 使用方法：
+```bash
+# 查看帮助
+python mini_switchhosts_V3.5_cli.py -h
+
+# 下载并应用 GitHub 规则
+python mini_switchhosts_V3.5_cli.py -d -a
+
+# 下载并应用 Replit 规则
+python mini_switchhosts_V3.5_cli.py -d -a -t replit
+
+# 仅创建备份
+python mini_switchhosts_V3.5_cli.py -b
+
+# 从备份恢复
+python mini_switchhosts_V3.5_cli.py -r
+
+# 使用本地规则文件
+python mini_switchhosts_V3.5_cli.py -a --rules my_rules.txt
+```
 
 ## 多语言支持
 
@@ -101,7 +136,7 @@
 ### Linux/macOS
 - 如果遇到权限问题，请使用 sudo 运行程序:
   ```
-  sudo python3 mini_switchhosts_V3.0_all_in_one.py
+  sudo python3 [版本文件名].py
   ```
 
 ### 通用问题

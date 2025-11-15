@@ -10,7 +10,7 @@
 
 mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 GitHub 和 Replit 等开发平台的访问速度。通过自动获取并更新最新的 IP 地址映射，该工具能够有效解决因 DNS 污染或网络延迟导致的访问缓慢问题。
 
-本工具支持 Windows、Linux 和 macOS 三大主流操作系统，提供中英文双语界面，采用 PySide6 框架构建图形用户界面，操作简单直观。
+本工具支持 Windows、Linux 和 macOS 三大主流操作系统，提供中英文双语界面，采用 PySide6 和 PyQt 框架构建图形用户界面，操作简单直观。
 
 ## 功能特点
 
@@ -34,12 +34,17 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 
 项目版本文件按系列组织在 [Stable version](Stable%20version) 目录中：
 
-### [All-in-One-Series](Stable%20version/All-in-One-Series)（推荐使用）
+### [All-in-One-Series](Stable%20version/All-In-One-Series)（推荐使用）
+
 一体化版本系列，单一文件支持所有平台和语言：
-- [All-in-One](Stable%20version/All-in-One-Series/All-in-One) - All-in-One 一体化版本
+
+- [All-in-One](Stable%20version/All-In-One-Series/All-in-One) - PySide6 版本
+- [PyQt-All-in-one-Series](Stable%20version/All-In-One-Series/PyQt-All-in-one-Series) - PyQt 版本
 
 ### [Legacy-Series](Stable%20version/Legacy-Series)
+
 传统版本系列，按平台和语言分别维护：
+
 - [Windows](Stable%20version/Legacy-Series/Windows) - Windows 平台版本
 - [Linux](Stable%20version/Legacy-Series/Linux) - Linux 平台版本
 - [macOS](Stable%20version/Legacy-Series/macOS) - macOS 平台版本
@@ -48,7 +53,8 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 
 ## 推荐使用：All-in-One 一体化版本
 
-为了简化使用和维护，我们强烈推荐使用 [All-in-One-Series](Stable%20version/All-in-One-Series) 中的 [All-in-One](Stable%20version/All-in-One-Series/All-in-One) 版本，该版本具有以下优势：
+为了简化使用和维护，我们强烈推荐使用 [All-in-One-Series](Stable%20version/All-In-One-Series) 中的版本，该版本具有以下优势：
+
 - 单一文件支持所有平台（Windows、Linux、macOS）
 - 自动适配系统语言（英文、中文）
 - 包含所有功能特性
@@ -57,7 +63,7 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 ## 使用说明
 
 1. 根据您的需求选择系列：
-   - 追求便捷性：选择 [All-in-One-Series](Stable%20version/All-in-One-Series)
+   - 追求便捷性：选择 [All-in-One-Series](Stable%20version/All-In-One-Series)
    - 需要特定平台版本：选择 [Legacy-Series](Stable%20version/Legacy-Series) 中的对应平台
 2. 进入选择的系列目录
 3. 下载需要的版本文件

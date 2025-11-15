@@ -10,7 +10,7 @@
 
 mini-SwitchHosts is a cross-platform Hosts management tool specifically designed to optimize access speeds for development platforms such as GitHub and Replit. By automatically fetching and updating the latest IP address mappings, this tool effectively solves slow access issues caused by DNS pollution or network latency.
 
-This tool supports the three major mainstream operating systems: Windows, Linux, and macOS, provides bilingual interfaces in Chinese and English, and uses the PySide6 framework to build a graphical user interface that is simple and intuitive to operate.
+This tool supports the three major mainstream operating systems: Windows, Linux, and macOS, provides bilingual interfaces in Chinese and English, and uses the PySide6 and PyQt frameworks to build a graphical user interface that is simple and intuitive to operate.
 
 ## Features
 
@@ -34,9 +34,10 @@ This tool supports the three major mainstream operating systems: Windows, Linux,
 
 Project version files are organized by series in the [Stable version](Stable%20version) directory:
 
-### [All-in-One-Series](Stable%20version/All-in-One-Series) (Recommended)
+### [All-in-One-Series](Stable%20version/All-In-One-Series) (Recommended)
 All-in-one version series, single file supports all platforms and languages:
-- [All-in-One](Stable%20version/All-in-One-Series/All-in-One) - All-in-One integrated version
+- [All-in-One](Stable%20version/All-In-One-Series/All-in-One) - PySide6 version
+- [PyQt-All-in-one-Series](Stable%20version/All-In-One-Series/PyQt-All-in-one-Series) - PyQt version
 
 ### [Legacy-Series](Stable%20version/Legacy-Series)
 Traditional version series, maintained separately by platform and language:
@@ -48,7 +49,7 @@ Each directory contains all version files of that series, along with detailed ve
 
 ## Recommended Use: All-in-One Integrated Version
 
-To simplify usage and maintenance, we strongly recommend using the [All-in-One](Stable%20version/All-in-One-Series/All-in-One) version in [All-in-One-Series](Stable%20version/All-in-One-Series), which has the following advantages:
+To simplify usage and maintenance, we strongly recommend using the versions in [All-in-One-Series](Stable%20version/All-In-One-Series), which has the following advantages:
 - Single file supports all platforms (Windows, Linux, macOS)
 - Automatically adapts to system language (English, Chinese)
 - Contains all functional features
@@ -57,7 +58,7 @@ To simplify usage and maintenance, we strongly recommend using the [All-in-One](
 ## Usage Instructions
 
 1. Select a series based on your needs:
-   - For convenience: Choose [All-in-One-Series](Stable%20version/All-in-One-Series)
+   - For convenience: Choose [All-in-One-Series](Stable%20version/All-In-One-Series)
    - For specific platform version: Choose the corresponding platform in [Legacy-Series](Stable%20version/Legacy-Series)
 2. Enter the selected series directory
 3. Download the required version file

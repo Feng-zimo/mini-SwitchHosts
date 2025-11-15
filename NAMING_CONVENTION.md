@@ -23,6 +23,13 @@ All-in-One 系列文件采用特殊命名规范：`项目名_版本信息_all_in
 示例：
 - `mini_switchhosts_V3.0_all_in_one.py`
 
+### PyQt 版本命名规范
+
+PyQt 版本文件采用特殊命名规范：`项目名_版本信息_pyqt.py`
+
+示例：
+- `mini_switchhosts_V3.0_pyqt.py`
+
 ## 目录结构规范
 
 ```
@@ -49,7 +56,10 @@ All-in-One 系列文件采用特殊命名规范：`项目名_版本信息_all_in
 │   │       └── mini_switchhosts-简体中文/
 │   │           └── mini_switchhosts_macOS_V2.0.plus_ZH.py
 │   ├── All-in-One-Series/
-│   │   └── mini_switchhosts_V3.0_all_in_one.py
+│   │   ├── All-in-One/
+│   │   │   └── mini_switchhosts_V3.0_all_in_one.py
+│   │   └── PyQt-All-in-one-Series/
+│   │       └── mini_switchhosts_V3.0_pyqt.py
 │   └── Current-Version/ (符号链接或最新版本的快捷方式)
 └── beta/
     ├── README.md （说明beta版本的用途和注意事项）
