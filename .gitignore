@@ -180,3 +180,6 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Project specific files to ignore
+git_command_manual.md
