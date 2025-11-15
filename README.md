@@ -81,3 +81,7 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 ## 许可证
 
 本项目采用 MIT 许可证，详情请见 [LICENSE](LICENSE) 文件。
+
+## 相关文件
+
+- [English Version README](README_EN.md)
