@@ -21,6 +21,21 @@
   - 自动更新检查功能，支持检查GitHub最新版本
   - 并发处理能力，支持多线程并发处理多个域名解析请求
 
+### [mini_switchhosts_V3.0_pyqt.py](file:///e:/github/mini-SwitchHosts/Stable%20version/All-in-One-Series/All-in-One/mini_switchhosts_V3.0_pyqt.py)
+- **版本**: 3.0 PyQt Edition
+- **发布日期**: 2025-11-15
+- **主要特性**:
+  - 跨平台支持：Windows、Linux、macOS
+  - 多语言界面：自动检测系统语言，支持英文和中文
+  - 增强的IP解析算法，提高IP地址获取的准确性和速度
+  - 智能规则过滤功能，自动过滤无效或低质量的Hosts规则
+  - 增量更新机制，只更新变化的部分，提高更新效率
+  - 现代化UI界面，基于PyQt框架构建
+  - 实时状态监控，显示实时更新进度和系统状态
+  - 一键备份恢复功能，简化备份和恢复操作流程
+  - 并发处理能力，支持多线程并发处理多个域名解析请求
+  - PyQt框架支持，提供流畅的用户界面体验
+
 ## 系统要求
 
 - Windows 7 或更高版本
