@@ -1,0 +1,10 @@
+# mini-SwitchHosts PyQt All-in-One Version Dependencies
+# This file lists all required Python packages for the PyQt All-in-One version
+
+# Core dependencies
+requests>=2.25.0
+PyQt5>=5.15.0
+
+# System-specific dependencies (automatically handled by Python)
+# For Windows: ctypes (included in standard library)
+# For Linux/macOS: platform (included in standard library)

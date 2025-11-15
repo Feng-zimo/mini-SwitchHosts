@@ -1,0 +1,10 @@
+# mini-SwitchHosts Linux Chinese Version Dependencies
+# This file lists all required Python packages for the Linux Chinese version
+
+# Core dependencies
+requests>=2.25.0
+PySide6>=6.0.0
+
+# System-specific dependencies (automatically handled by Python)
+# subprocess (included in standard library)
+# tempfile (included in standard library)

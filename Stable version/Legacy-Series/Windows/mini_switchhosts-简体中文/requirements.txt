@@ -1,0 +1,9 @@
+# mini-SwitchHosts Windows Chinese Version Dependencies
+# This file lists all required Python packages for the Windows Chinese version
+
+# Core dependencies
+requests>=2.25.0
+PySide6>=6.0.0
+
+# System-specific dependencies (automatically handled by Python)
+# ctypes (included in standard library)

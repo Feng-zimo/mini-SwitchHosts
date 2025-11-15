@@ -1,0 +1,9 @@
+# mini-SwitchHosts Windows English Version Dependencies
+# This file lists all required Python packages for the Windows English version
+
+# Core dependencies
+requests>=2.25.0
+PySide6>=6.0.0
+
+# System-specific dependencies (automatically handled by Python)
+# ctypes (included in standard library)

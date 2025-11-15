@@ -1,0 +1,10 @@
+# mini-SwitchHosts All-in-One Version Dependencies
+# This file lists all required Python packages for the All-in-One version
+
+# Core dependencies
+requests>=2.25.0
+PySide6>=6.0.0
+
+# System-specific dependencies (automatically handled by Python)
+# For Windows: ctypes (included in standard library)
+# For Linux/macOS: platform (included in standard library)
