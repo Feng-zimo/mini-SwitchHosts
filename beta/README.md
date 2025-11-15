@@ -6,9 +6,13 @@
 
 此目录用于预告即将推出的测试版本和未来功能规划。
 
-## 即将推出：3.0 Pro 版本
+## 已发布：3.0 Pro 版本
 
-我们正在开发功能更强大的 mini-SwitchHosts 3.0 Pro 版本，详情请查看 [UPCOMING_3.0_PRO.md](UPCOMING_3.0_PRO.md) 文件。
+我们已经发布了功能更强大的 mini-SwitchHosts 3.0 Pro 版本，详情请查看 [Stable version/Pro-Series](../Stable%20version/Pro-Series) 目录。
+
+## 即将推出：4.0 版本
+
+我们正在开发功能更加强大的 mini-SwitchHosts 4.0 版本，详情请查看 [UPCOMING_4.0.md](UPCOMING_4.0.md) 文件。
 
 ## 历史版本
 

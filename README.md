@@ -41,6 +41,12 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 - [All-in-One](Stable%20version/All-In-One-Series/All-in-One) - PySide6 版本
 - [PyQt-All-in-one-Series](Stable%20version/All-In-One-Series/PyQt-All-in-one-Series) - PyQt 版本
 
+### [Pro-Series](Stable%20version/Pro-Series)
+
+专业版本系列，提供更多高级功能：
+
+- [Pro](Stable%20version/Pro-Series) - 3.0 Pro 专业版
+
 ### [Legacy-Series](Stable%20version/Legacy-Series)
 
 传统版本系列，按平台和语言分别维护：
@@ -64,6 +70,7 @@ mini-SwitchHosts 是一个跨平台的 Hosts 管理工具，专门用于优化 G
 
 1. 根据您的需求选择系列：
    - 追求便捷性：选择 [All-in-One-Series](Stable%20version/All-In-One-Series)
+   - 需要专业功能：选择 [Pro-Series](Stable%20version/Pro-Series)
    - 需要特定平台版本：选择 [Legacy-Series](Stable%20version/Legacy-Series) 中的对应平台
 2. 进入选择的系列目录
 3. 下载需要的版本文件

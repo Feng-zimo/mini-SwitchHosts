@@ -6,9 +6,13 @@
 
 This directory is used to preview upcoming test versions and future feature plans.
 
-## Upcoming: 3.0 Pro Version
+## Released: 3.0 Pro Version
 
-We are developing a more powerful mini-SwitchHosts 3.0 Pro version. For details, please check [UPCOMING_3.0_PRO.md](UPCOMING_3.0_PRO.md) file.
+We have released a more powerful mini-SwitchHosts 3.0 Pro version. For details, please check [Stable version/Pro-Series](../Stable%20version/Pro-Series) directory.
+
+## Upcoming: 4.0 Version
+
+We are developing an even more powerful mini-SwitchHosts 4.0 version. For details, please check [UPCOMING_4.0.md](UPCOMING_4.0.md) file.
 
 ## Historical Versions
 

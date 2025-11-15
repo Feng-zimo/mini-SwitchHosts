@@ -1,4 +1,4 @@
-# All-in-One 一体化版本说明
+,# All-in-One 一体化版本说明
 
 ![Logo](../../../logo/logo.png)
 
@@ -11,6 +11,9 @@
 
 ### [PyQt-All-in-one-Series](PyQt-All-in-one-Series)
 基于 PyQt 框架的 All-in-One 版本
+
+### [Terminal-All-in-One](Terminal-All-in-One)
+命令行版本，适用于服务器环境或自动化脚本使用
 
 ## 版本历史
 
@@ -59,7 +62,7 @@
 
 ## CLI 命令行版本
 
-我们还提供了一个命令行版本 ([mini_switchhosts_V3.5_cli.py](file:///e:/github/mini-SwitchHosts/Stable%20version/All-in-One-Series/All-in-One/mini_switchhosts_V3.5_cli.py))，适用于服务器环境或自动化脚本使用。
+我们还提供了一个命令行版本 ([Terminal-All-in-One](Terminal-All-in-One))，适用于服务器环境或自动化脚本使用。
 
 ### CLI 版本特性：
 - 无图形界面，纯命令行操作
@@ -71,22 +74,53 @@
 ### CLI 使用方法：
 ```bash
 # 查看帮助
-python mini_switchhosts_V3.5_cli.py -h
+python mini_switchhosts_V3.5_Terminal.py -h
 
 # 下载并应用 GitHub 规则
-python mini_switchhosts_V3.5_cli.py -d -a
+python mini_switchhosts_V3.5_Terminal.py -d -a
 
 # 下载并应用 Replit 规则
-python mini_switchhosts_V3.5_cli.py -d -a -t replit
+python mini_switchhosts_V3.5_Terminal.py -d -a -t replit
 
 # 仅创建备份
-python mini_switchhosts_V3.5_cli.py -b
+python mini_switchhosts_V3.5_Terminal.py -b
 
 # 从备份恢复
-python mini_switchhosts_V3.5_cli.py -r
+python mini_switchhosts_V3.5_Terminal.py -r
 
 # 使用本地规则文件
-python mini_switchhosts_V3.5_cli.py -a --rules my_rules.txt
+python mini_switchhosts_V3.5_Terminal.py -a --rules my_rules.txt
+```
+
+## PyQt CLI 命令行版本
+
+我们也提供了一个基于 PyQt 的命令行版本 ([mini_switchhosts_V3.5_pyqt_cli.py](file:///e:/github/mini-SwitchHosts/Stable%20version/All-In-One-Series/mini_switchhosts_V3.5_pyqt_cli.py))，它与 PyQt GUI 版本共享相同的依赖库。
+
+### PyQt CLI 版本特性：
+- 无图形界面，纯命令行操作
+- 与 PyQt GUI 版本共享依赖库
+- 支持所有核心功能（下载、应用、备份、恢复规则）
+- 支持命令行参数，便于脚本集成
+
+### PyQt CLI 使用方法：
+```bash
+# 查看帮助
+python mini_switchhosts_V3.5_pyqt_cli.py -h
+
+# 下载并应用 GitHub 规则
+python mini_switchhosts_V3.5_pyqt_cli.py -d -a
+
+# 下载并应用 Replit 规则
+python mini_switchhosts_V3.5_pyqt_cli.py -d -a -t replit
+
+# 仅创建备份
+python mini_switchhosts_V3.5_pyqt_cli.py -b
+
+# 从备份恢复
+python mini_switchhosts_V3.5_pyqt_cli.py -r
+
+# 使用本地规则文件
+python mini_switchhosts_V3.5_pyqt_cli.py -a --rules my_rules.txt
 ```
 
 ## 多语言支持
